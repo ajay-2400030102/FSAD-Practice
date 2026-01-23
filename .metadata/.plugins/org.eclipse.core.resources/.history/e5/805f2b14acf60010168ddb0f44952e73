@@ -1,0 +1,36 @@
+package com.klu.model;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Order {
+
+    private int orderId;
+    private String customerName;
+    private String productName;
+    private int quantity;
+
+ 
+    public Order(@Value("102") int orderId,@Value("Ajayy") String customerName, @Value("2") int quantity) {
+
+        this.orderId = orderId;
+        this.customerName = customerName;
+        this.quantity = quantity;
+    }
+
+   
+    @Value("Laptop")
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+ 
+    public void display() {
+      System.out.println("following is order details");
+        System.out.println("Order ID: " + orderId);
+        System.out.println("Customer Name: " + customerName);
+        System.out.println("Product Name: " + productName);
+        System.out.println("Quantity: " + quantity);
+    }
+}
